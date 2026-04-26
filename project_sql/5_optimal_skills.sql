@@ -18,7 +18,7 @@ GROUP BY
 
 ),
 
-salary_skills as (
+salary_skills AS (
     SELECT  
     skills_dim.skill_id,
     round(avg(salary_year_avg), 0) as avg_salary
@@ -70,7 +70,7 @@ WHERE
 GROUP BY 
     skills_dim.skill_id
 HAVING
-    count(skills_job_dim.job_id) as demand_count, > 10
+    count(skills_job_dim.job_id) > 10
 ORDER BY
     avg_salary DESC,
     demand_count DESC
